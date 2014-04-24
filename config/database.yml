@@ -1,0 +1,10 @@
+
+development:
+  adapter: postgresql
+  database: road_trippers_development
+
+test:
+  adapter: postgresql
+  database: road_trippers_test
+
+
