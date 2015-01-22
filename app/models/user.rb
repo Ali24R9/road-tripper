@@ -3,10 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   
   validates :username, :uniqueness => {:case_sensitive => false}
-  # has_many :stops
-  # has_many :roadtrips
-  # # has_many :roadtripsComments
-  # has_many :roadtrips, through: :roadtripsComments
-  # has_many :stopsComments
-  # has_many :stops, through: :stopsComments
+  has_many :trips
+  has_many :comments
 end
