@@ -9,12 +9,20 @@
 <body>
 <div id="container">
   <div id="user_nav">
-
+    <% if current_user %>
+      Logged in as <%= current_user.name %>
+      <%= link_to "Log Out", session_path("current"), method: "delete" %>
+    <% else %>
+      <%= link_to "Register", new_user_path %> or
+      <%= link_to "Log In", new_session_path %>
+    <% end %>
   </div>
 
 
 
   <%= yield %>
 </div>
+  <div class="notice"><%= flash[:notice] %></div>
+
 </body>
 </html>
