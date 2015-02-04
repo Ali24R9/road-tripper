@@ -1,1 +1,34 @@
-<h1>Welcome, <%=@user.username%></h1>
+<h1>Welcome, <%=current_user.name%>!</h1>
+
+<h2>Add a new trip</h2>
+
+<%= form_for @trip do |f| %>
+
+  <% if @trip.errors.any? %>
+    <div class="error_messages">
+    <h4>Please fix these errors:</h4>
+      <ul>
+        <% @trip.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.fields_for :stop do |ff| %>
+      <div>
+      <%= ff.label :start %>
+      <%= ff.text_field :start %>
+      </div>
+      <div>
+      <%= ff.label :finish %>
+      <%= ff.text_field :finish %>
+      </div>
+    <% end %>
+  </div>
+  <div class="actions"><%= f.submit %></div>
+<% end %>

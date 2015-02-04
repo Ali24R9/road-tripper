@@ -1,0 +1,4 @@
+<h1><%=@trip.name%></h1>
+<h2><%@trip.stops.each do |stop| %></h2>
+  <li><%= stop.location %></li>
+<% end %>

@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def show
+    @trip = Trip.new
+  end
+
   def new
     @user = User.new
   end
