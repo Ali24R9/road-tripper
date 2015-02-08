@@ -17,24 +17,15 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.fields_for :stop do |ff| %>
+    <%= f.fields_for :stops do |ff| %>
       <div id="stops">
-        <div>
-        <%= ff.label :content, "Stop" %><br/>
-        <%= ff.text_field :content %>
-        </div>
-        <div>
-        <%= ff.label :finish %><br/>
-        <%= ff.text_field :finish %>
-        </div>
+        <%= ff.label :location, "City" %><br/>
+        <%= ff.text_field :location %>
+        <%= render partial: 'form_field', locals: { :ff => ff } %>
       </div>
     <% end %>
   </div><br/>
   <div class="actions">
-  <button type="button" id="add_stop" class="btn btn-default btn-md">
-    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  
-  </button></br>  <%= f.submit %>
+  </br>  <%= f.submit %>
   </div>
 <% end %>
-
-<%= link_to 'Add a new trip', new_trip_path %>

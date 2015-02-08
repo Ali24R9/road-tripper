@@ -5,4 +5,7 @@ RoadTripper::Application.routes.draw do
   resources :users
   resources :sessions
   resources :trips
+
+  get 'trips/add_stop' => 'trips#add_stop', :as => :add_stop
+
 end
