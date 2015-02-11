@@ -4,8 +4,9 @@ RoadTripper::Application.routes.draw do
   root to: "home#index"
   resources :users
   resources :sessions
+  get 'trips/add_stop' => 'trips#add_stop', :as => :add_stop
+
   resources :trips
 
-  get 'trips/add_stop' => 'trips#add_stop', :as => :add_stop
 
 end

@@ -17,16 +17,18 @@ class TripsController < ApplicationController
       # @stop_two = Stop.create(location: params["trip"]["stop"]["finish"], trip_id: @trip.id)
       render "show"
     else
-      redirect_to "/show/#{current_user.id}"
+      redirect_to "users/show/#{current_user.id}"
     end
   end
 
   def add_stop
-    redirect_to root_url
+    @trip = Trip.new
+    @trip.stops.build
     # @stop = Stop.new
     # respond_to do |format|
     #   format.js
     # end
+    render "new"
   end
 
   private

@@ -21,11 +21,15 @@
       <div id="stops">
         <%= ff.label :location, "City" %><br/>
         <%= ff.text_field :location %>
-        <%= render partial: 'form_field', locals: { :ff => ff } %>
       </div>
+      <%= render partial: 'form_field', locals: { :ff => ff } %>
     <% end %>
   </div><br/>
   <div class="actions">
   </br>  <%= f.submit %>
   </div>
+  <button id="add_field" type="button" class="btn btn-default btn-md" data-fields="1">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  
+  </button>
+
 <% end %>
