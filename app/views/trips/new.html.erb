@@ -1,6 +1,6 @@
 <h2>Add a new trip</h2>
 
-<%= form_for @trip do |f| %>
+<%= form_for @trip, html: {id: "form-fields", :"data-fields"=> "1"} do |f| %>
 
   <% if @trip.errors.any? %>
     <div class="error_messages">
@@ -16,13 +16,12 @@
     <%= f.label :name %><br/>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="field inputs">
     <%= f.fields_for :stops do |ff| %>
       <div id="stops">
         <%= ff.label :location, "City" %><br/>
         <%= ff.text_field :location %>
       </div>
-      <%= render partial: 'form_field', locals: { :ff => ff } %>
     <% end %>
   </div><br/>
   <div class="actions">
@@ -31,5 +30,7 @@
   <button id="add_field" type="button" class="btn btn-default btn-md" data-fields="1">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  
   </button>
-
+  <button id="remove_field" type="button" class="btn btn-default btn-md" data-fields="1">
+    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>  
+  </button>
 <% end %>
