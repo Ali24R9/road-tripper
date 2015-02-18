@@ -23,11 +23,6 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'capybara'
-  gem 'launchy'
-  gem 'faker'
-  gem 'letter_opener'
   gem 'pry'
 end
 

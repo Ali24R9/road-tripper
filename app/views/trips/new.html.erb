@@ -1,7 +1,6 @@
 <h2>Add a new trip</h2>
 
 <%= form_for @trip, html: {id: "form-fields", :"data-fields"=> "1"} do |f| %>
-
   <% if @trip.errors.any? %>
     <div class="error_messages">
     <h4>Please fix these errors:</h4>
@@ -18,14 +17,12 @@
   </div>
   <div class="field inputs">
     <%= f.fields_for :stops do |ff| %>
-      <div id="stops">
-        <%= ff.label :location, "City" %><br/>
-        <%= ff.text_field :location %>
-      </div>
+      <%= ff.label :location, "City" %><br/>
+      <%= ff.text_field :location %>
     <% end %>
   </div><br/>
-  <div class="actions">
-  </br>  <%= f.submit %>
+  <div class="field">
+    <%= f.hidden_field :user_id, {value: @user_id} %><br/>
   </div>
   <button id="add_field" type="button" class="btn btn-default btn-md" data-fields="1">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  
@@ -33,4 +30,7 @@
   <button id="remove_field" type="button" class="btn btn-default btn-md" data-fields="1">
     <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>  
   </button>
+  <div class="actions">
+  </br>  <%= f.submit %>
+  </div>
 <% end %>

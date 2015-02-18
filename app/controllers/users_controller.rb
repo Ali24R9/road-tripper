@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @trip = Trip.new
+    @trips = Trip.where(user_id: current_user.id)
   end
 
   def new
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end 
 
   private 
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, trips_attributes: [ :name, :user_id ])
+  end
 end
